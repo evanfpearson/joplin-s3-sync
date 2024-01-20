@@ -16,12 +16,14 @@ cat >/tmp/joplin-policy.json <<EOL
 			"Action": [
 				"s3:PutObject",
 				"s3:GetObject",
+				"s3:GetBucketLocation",
 				"s3:RestoreObject",
 				"s3:ListBucket",
-				"s3:DeleteObject"
+				"s3:DeleteObject",
+				"s3:DeleteObjectVersion"
 			],
 			"Resource": [
-				"arn:aws:s3:::*/*",
+				"arn:aws:s3:::${BUCKET_NAME}/*",
 				"arn:aws:s3:::${BUCKET_NAME}"
 			]
 		}
